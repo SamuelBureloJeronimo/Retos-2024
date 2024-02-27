@@ -27,7 +27,11 @@ public class LenguajeHacker {
         //Convierte la entrada en lenguaje hacker
         System.out.println(recorrerCadena(txt));
     }
-
+    /*
+     * Método recursivo que recorre una cadena.
+     * @param <c> - Contiene el String a recorrer
+     * @return String+[Método recursivo]
+     */
     public static String recorrerCadena(String c){
         //Valida que haya mas valores que comparar
         if(c.isEmpty())
@@ -35,7 +39,14 @@ public class LenguajeHacker {
         String leet = indentificarLetter(c.charAt(0), db.alfabeto, 0);
         return leet+recorrerCadena(c.substring(1));
     }
-    
+    /*
+     * Método recursivo que identifica la letra en el lenguaje Leet
+     * y retorna su equivalente.
+     * @param <char> c - Contiene la letra a buscar
+     * @param <ArrayList<LenguajeLeet>> alfabet - Contiene el alfabeto Leet
+     * @param <int> index - Contiene el indice de recursividad
+     * @return [Método recursivo]
+     */
     private static String indentificarLetter(char c, ArrayList<LenguajeLeet> alfabet, int index){
         //Finaliza cuando llegue al final y no encuentre coincidencias
         if(alfabet.size() < index+1)
