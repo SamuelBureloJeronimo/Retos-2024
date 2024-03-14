@@ -25,19 +25,19 @@ public class LenguajeHacker {
         String txt = sc.nextLine(); //Lo recibe  y guarda en la variable "txt"
         sc.close();
         //Convierte la entrada en lenguaje hacker
-        System.out.println(recorrerCadena(txt));
+        System.out.println("Lenguaje Leet: "+convertToLeet(txt));
     }
     /*
      * Método recursivo que recorre una cadena.
      * @param <c> - Contiene el String a recorrer
      * @return String+[Método recursivo]
      */
-    public static String recorrerCadena(String c){
+    public static String convertToLeet(String c){
         //Valida que haya mas valores que comparar
         if(c.isEmpty())
             return "";
         String leet = indentificarLetter(c.charAt(0), db.alfabeto, 0);
-        return leet+recorrerCadena(c.substring(1));
+        return leet+convertToLeet(c.substring(1));
     }
     /*
      * Método recursivo que identifica la letra en el lenguaje Leet
@@ -50,9 +50,9 @@ public class LenguajeHacker {
     private static String indentificarLetter(char c, ArrayList<LenguajeLeet> alfabet, int index){
         //Finaliza cuando llegue al final y no encuentre coincidencias
         if(alfabet.size() < index+1)
-            return "";
+            return "?";
         //Valida si coincide
-        if(alfabet.get(index).Letra.equals(c+""))
+        if(alfabet.get(index).Letra.equalsIgnoreCase(c+""))
             return alfabet.get(index).AlfabetoLeet.get(0);
         
         //Si no, entonces sigue buscando
